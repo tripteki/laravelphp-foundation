@@ -1,0 +1,37 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
+
+class $CLASS$ extends Notification
+{
+    use Queueable;
+
+    /**
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * @return void
+     */
+    public function __destruct()
+    {
+        //
+    }
+
+    /**
+     * @param mixed $notifiable
+     * @return array
+     */
+    public function via($notifiable)
+    {
+        //
+    }
+}

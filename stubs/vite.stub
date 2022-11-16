@@ -1,0 +1,33 @@
+import laravel from "laravel-vite-plugin";
+import dotenv from "dotenv";
+import dotenvExpand from "dotenv-expand";
+import { defineConfig, } from "vite";
+
+dotenvExpand (dotenv.config ({
+
+    path: "../../.env",
+}));
+
+export default defineConfig ({
+
+    build: {
+
+        manifest: true,
+        emptyOutDir: true,
+        outDir: "../../public/build-$LOWER_NAME$",
+    },
+
+    plugins: [
+
+        laravel ({
+
+            refresh: true,
+            publicDirectory: "../../public",
+            buildDirectory: "build-$LOWER_NAME$",
+            input: [
+
+                __dirname + "/Resources/assets/js/app.js"
+            ],
+        }),
+    ],
+});
