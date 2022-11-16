@@ -1,0 +1,49 @@
+{
+    "name": "tripteki/laravelphp-foundation",
+    "version": "1.0.0",
+    "description": "Trip Teknologi's Laravel.php Foundation",
+
+    "readme": "README.md",
+    "license": "MIT",
+    "authors": [ { "name": "Trip Teknologi", "email": "tripteki.company@gmail.com" } ],
+    "homepage": "https://github.com/tripteki/laravelphp-foundation",
+    "support": { "issues": "https://github.com/tripteki/laravelphp-foundation/issues" },
+
+    "require": {
+
+        "php": "^8.0.2",
+
+        "laravel/framework": "^9.41.0",
+        "nwidart/laravel-modules": "^9.0.6",
+        "laravel/tinker": "^2.7.3",
+        "doctrine/dbal": "^3.5.1",
+        "predis/predis": "^2.0.3"
+    },
+
+    "require-dev": {},
+
+    "autoload": {
+
+        "psr-4": {
+
+            "Tripteki\\Foundation\\": "src/"
+        }
+    },
+
+    "autoload-dev": {},
+
+    "extra": {
+
+        "laravel": {
+
+            "dont-discover": [],
+
+            "providers": [
+
+                "Tripteki\\Foundation\\Providers\\FoundationServiceProvider"
+            ],
+
+            "aliases": []
+        }
+    }
+}

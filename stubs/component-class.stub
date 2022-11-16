@@ -1,0 +1,32 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\View\Component;
+
+class $CLASS$ extends Component
+{
+    /**
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * @return void
+     */
+    public function __destruct()
+    {
+        //
+    }
+
+    /**
+     * @return \Illuminate\View\View|string
+     */
+    public function render()
+    {
+        return view("$LOWER_NAME$::$COMPONENT_NAME$");
+    }
+}

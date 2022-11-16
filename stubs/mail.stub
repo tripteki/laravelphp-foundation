@@ -1,0 +1,37 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class $CLASS$ extends Mailable
+{
+    use SerializesModels, Queueable;
+
+    /**
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * @return void
+     */
+    public function __destruct()
+    {
+        //
+    }
+
+    /**
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view("view.name");
+    }
+}

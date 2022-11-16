@@ -1,0 +1,23 @@
+{
+    "autoload": {
+
+        "psr-4": {
+
+            "$MODULE_NAMESPACE$\\$STUDLY_NAME$\\": ""
+        }
+    },
+
+    "autoload-dev": {},
+
+    "extra": {
+
+        "laravel": {
+
+            "dont-discover": [],
+
+            "providers": [],
+
+            "aliases": []
+        }
+    }
+}

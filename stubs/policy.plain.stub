@@ -1,0 +1,26 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class $CLASS$
+{
+    use HandlesAuthorization;
+
+    /**
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * @return void
+     */
+    public function __destruct()
+    {
+        //
+    }
+}

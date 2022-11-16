@@ -1,0 +1,85 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+
+class $CLASS$ extends ServiceProvider
+{
+    /**
+     * @var string
+     */
+    protected $moduleNamespace = "$MODULE_NAMESPACE$\$MODULE$\$CONTROLLER_NAMESPACE$";
+
+    /**
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
+    }
+
+    /**
+     * @return void
+     */
+    public function map()
+    {
+        $this->configureRateLimit();
+
+        // $this->mapBroadcastRoutes();
+        $this->mapApiRoutes();
+        $this->mapWebRoutes();
+    }
+
+    /**
+     * @return void
+     */
+    protected function mapBroadcastRoutes()
+    {
+        if (Request::hasHeader("Authorization")) {
+
+            Broadcast::routes([ "prefix" => "api/$LOWER_NAME$", "middleware" => "auth:api", ]);
+
+        } else {
+
+            Broadcast::routes([ "prefix" => "$LOWER_NAME$", ]);
+        }
+
+        require(module_path("$MODULE$", $this->getBroadcastRoutesPath()));
+    }
+
+    /**
+     * @return string
+     */
+    protected function getBroadcastRoutesPath()
+    {
+        return "/" . $this->app["modules"]->config("stubs.files.routes/broadcast", "Routes/_channel.php");
+    }
+
+    /**
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::prefix("api/$LOWER_NAME$")->middleware("api")->namespace($this->moduleNamespace)->group(module_path("$MODULE$", "$API_ROUTES_PATH$"));
+    }
+
+    /**
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::prefix("$LOWER_NAME$")->middleware("web")->namespace($this->moduleNamespace)->group(module_path("$MODULE$", "$WEB_ROUTES_PATH$"));
+    }
+
+    /**
+     * @return void
+     */
+    protected function configureRateLimit()
+    {
+    }
+}
